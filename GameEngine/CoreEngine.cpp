@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 10:59:24 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 20:40:13 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:07:02 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,7 @@ int				CoreEngine::run()
 		if ( Input::isKeyDown( KEY_LEFT ) )
 			this->stop();
 		this->_game->update( _framerate );
-		this->_game->render( _framerate );
-		mvwprintw( &getRenderEngine().getWindow(), 0, 0, "+" );
+		this->_game->render( *this->_renderEngine );
 		wrefresh( &getRenderEngine().getWindow() );
 		refresh();
 		endTime = getTime();

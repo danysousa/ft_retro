@@ -6,11 +6,13 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 19:04:15 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:04:12 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "FtRetroGame.hpp"
+# include "GameObjects/Player.hpp"
+# include "GameComponents/DisplayComponent.hpp"
 # include <iostream>
 
 FtRetroGame::FtRetroGame() : Game()
@@ -37,11 +39,11 @@ FtRetroGame &	FtRetroGame::operator=( FtRetroGame const & rhs )
 	return ( *this );
 }
 
-bool	FtRetroGame::init()
+bool			FtRetroGame::init()
 {
 	// START INIT
 
-	GameObject *o = new GameObject();
+	GameObject *	o = new Player("O");
 
 	addObject( *o );
 

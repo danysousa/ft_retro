@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:46:45 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 18:53:15 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:41:24 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ GameComponent &	GameComponent::operator=( GameComponent const & rhs )
 {
 	if ( this != &rhs )
 	{
+		// this->_parent = &rhs.getParent();
 	}
 	return ( *this );
 }
@@ -48,5 +49,11 @@ void			GameComponent::update( float delta )
 
 void			GameComponent::render( RenderEngine & renderEngine )
 {
+	// printw("pok");
 	(void)renderEngine;
 }
+
+// GameObject &	GameComponent::getParent() const
+// {
+// 	return ( *this->_parent );
+// }

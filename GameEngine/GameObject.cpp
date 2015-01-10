@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:54:58 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 18:51:38 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:26:18 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ GameObject &	GameObject::operator=( GameObject const & rhs )
 	if ( this != &rhs )
 	{
 		this->_pos = &rhs.getPos();
+		this->_childrens = &rhs.getChildrens();
+		this->_nbChildrens = rhs.getNbChildrens();
+		this->_components = &rhs.getComponents();
+		this->_nbComponents = rhs.getNbComponents();
 	}
 	return ( *this );
 }
@@ -63,17 +67,38 @@ void 			GameObject::renderAll( RenderEngine & renderEngine )
 {
 	render( renderEngine );
 
-	for ( int i = 0; i < this->_nbChildrens; ++i )
+	for ( int i = 0; i < this->_nbChildrens; i++ )
 		this->_childrens[i].renderAll( renderEngine );
 }
 
 void			GameObject::render( RenderEngine & renderEngine )
 {
-	for ( int i = 0; i < this->_nbComponents; ++i )
+	for ( int i = 0; i < this->_nbComponents; i++ )
 		this->_components[i].render( renderEngine );
 }
 
-Vector2f &		GameObject::getPos() const
+Vector2f &			GameObject::getPos() const
 {
 	return ( *this->_pos );
 }
+
+GameObject &		GameObject::getChildrens() const
+{
+	return ( *this->_childrens );
+}
+
+int					GameObject::getNbChildrens() const
+{
+	return ( this->_nbChildrens );
+}
+
+GameComponent &		GameObject::getComponents() const
+{
+	return ( *this->_components );
+}
+
+int					GameObject::getNbComponents() const
+{
+	return ( this->_nbComponents );
+}
+

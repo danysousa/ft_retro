@@ -26,9 +26,9 @@ SRCS			=	$(NAME).cpp							\
 					GameEngine/GameComponent.cpp		\
 					GameEngine/Input.cpp				\
 					GameEngine/Game.cpp					\
-					# GameObjects/Player.cpp				\
-					# \
-					# GameComponent/Input.cpp				\
+					GameObjects/Player.cpp				\
+					\
+					GameComponents/DisplayComponent.cpp
 
 OBJS			=	$(SRCS:.cpp=.o)
 

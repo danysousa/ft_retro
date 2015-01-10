@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 17:09:43 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/10 22:25:14 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,14 @@ Game &	Game::operator=( Game const & rhs )
 {
 	if ( this != &rhs )
 	{
+		this->_root = &rhs.getRoot();
 	}
 	return ( *this );
+}
+
+GameObject &	Game::getRoot() const
+{
+	return ( *this->_root );
 }
 
 GameObject &	Game::getRootObject()
@@ -55,9 +61,9 @@ void	Game::update( float delta )
 	(void)delta;
 }
 
-void	Game::render( float delta )
+void	Game::render( RenderEngine & renderEngine )
 {
-	(void)delta;
+	this->getRootObject().renderAll( renderEngine );
 }
 
 void	Game::addObject( GameObject & object )
