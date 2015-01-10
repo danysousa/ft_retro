@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:45:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/10 12:01:05 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/10 13:06:25 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,62 @@ Vector2f::~Vector2f( void )
 ** OPERATOR
 */
 
-Vector2f		& Vector2f::operator=( Vector2f & lhs )
+Vector2f &		Vector2f::operator=( Vector2f & rhs )
 {
-	this->_x = lhs.getX();
-	this->_y = lhs.getY();
+	this->_x = rhs.getX();
+	this->_y = rhs.getY();
 
 	return ( *this );
+}
+
+Vector2f &		Vector2f::operator+( Vector2f & rhs ) const
+{
+	float	x = this->_x + rhs.getX();
+	float	y = this->_y + rhs.getY();
+
+	Vector2f *tmp = new Vector2f( x, y );
+
+	return ( *tmp );
+}
+
+Vector2f &		Vector2f::operator-( Vector2f & rhs ) const
+{
+	float	x = rhs.getX() - this->_x;
+	float	y = rhs.getY() - this->_y;
+
+	Vector2f *tmp = new Vector2f( x, y );
+
+	return ( *tmp );
+}
+
+Vector2f &		Vector2f::operator*( float rhs ) const
+{
+	float	x = this->_x * rhs;
+	float	y = this->_y * rhs;
+
+	Vector2f *tmp = new Vector2f( x, y );
+
+	return ( *tmp );
+}
+
+Vector2f &		Vector2f::operator*( int rhs ) const
+{
+	float	x = this->_x * (float)rhs;
+	float	y = this->_y * (float)rhs;
+
+	Vector2f *tmp = new Vector2f( x, y );
+
+	return ( *tmp );
+}
+
+Vector2f &		Vector2f::operator*( Vector2f & rhs ) const
+{
+	float	x = this->_x * rhs.getX();
+	float	y = this->_y * rhs.getY();
+
+	Vector2f *tmp = new Vector2f( x, y );
+
+	return ( *tmp );
 }
 
 /*
