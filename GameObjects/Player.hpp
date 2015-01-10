@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_retro.cpp                                       :+:      :+:    :+:   */
+/*   Player.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/10 09:46:01 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 17:36:18 by rbenjami         ###   ########.fr       */
+/*   Created: 2015/01/10 17:38:05 by rbenjami          #+#    #+#             */
+/*   Updated: 2015/01/10 18:42:07 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "GameEngine/CoreEngine.hpp"
-# include "FtRetroGame.hpp"
+#ifndef PLAYER
+# define PLAYER
+# include "GameEngine/GameObject.hpp"
 
-int		main( void )
+class Player : public GameObject
 {
-	Game *game = new FtRetroGame();
-	CoreEngine *engine = new CoreEngine( 60, *game );
+public:
+	Player( void );
+	Player( Player const & src );
+	virtual ~Player( void );
 
-	engine->createWindow();
-	engine->start();
+	Player &			operator=( Player const & rhs );
 
-	delete engine;
-	return ( 0 );
-}
+};
+
+#endif

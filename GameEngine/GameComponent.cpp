@@ -1,38 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GameObject.cpp                                     :+:      :+:    :+:   */
+/*   GameComponent.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/10 12:54:58 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 14:24:01 by rbenjami         ###   ########.fr       */
+/*   Created: 2015/01/10 18:46:45 by rbenjami          #+#    #+#             */
+/*   Updated: 2015/01/10 18:53:15 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "GameObject.hpp"
+# include "GameComponent.hpp"
 
-GameObject::GameObject()
+GameComponent::GameComponent()
 {
 	return ;
 }
 
-GameObject::GameObject( GameObject const & src )
+GameComponent::GameComponent( GameComponent const & src )
 {
 	*this = src;
 	return ;
 }
 
-GameObject::~GameObject()
+GameComponent::~GameComponent()
 {
 	return ;
 }
 
-
-GameObject &	GameObject::operator=( GameObject const & rhs )
+GameComponent &	GameComponent::operator=( GameComponent const & rhs )
 {
 	if ( this != &rhs )
 	{
 	}
 	return ( *this );
+}
+
+void			GameComponent::input( float delta )
+{
+	(void)delta;
+}
+
+void			GameComponent::update( float delta )
+{
+	(void)delta;
+}
+
+void			GameComponent::render( RenderEngine & renderEngine )
+{
+	(void)renderEngine;
 }

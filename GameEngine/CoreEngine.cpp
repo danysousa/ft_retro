@@ -6,14 +6,14 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 10:59:24 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 14:20:31 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/10 18:10:37 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "CoreEngine.hpp"
 
 CoreEngine::CoreEngine( double framerate, Game & game ) :
-	_framerate( framerate ),
+	_frameTime( 1 / framerate ),
 	_game( &game ),
 	_isRunning( false )
 {
@@ -34,7 +34,7 @@ CoreEngine &	CoreEngine::operator=( CoreEngine const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_framerate = rhs.getFramerate();
+		this->_frameTime = rhs.getFrameTime();
 		this->_game = &rhs.getGame();
 		this->_isRunning = rhs.isRunning();
 		this->_renderEngine = &rhs.getRenderEngine();
@@ -67,20 +67,48 @@ bool			CoreEngine::stop()
 
 int				CoreEngine::run()
 {
-	unsigned	startTime;
-	unsigned	endTime;
+	double		lastTime = getTime();
+	double		frameCounter = 0;
+	double		unprocessedTime = 0;
+	int			frames = 0;
 
 	this->_game->init();
 	while ( this->_isRunning )
 	{
-		startTime = CoreEngine::getTime();
+		bool		render = false;
+		double		startTime = getTime();
+		double		passedTime = startTime - lastTime;
+
 		clear();
-		// this->_game->inputGame();
-		// this->_game->updateGame();
-		// this->_game->renderGame();
-		refresh();
-		endTime = CoreEngine::getTime();
-		usleep( ( 60 / this->_framerate ) - ( endTime - startTime ) );
+
+		lastTime = startTime;
+		unprocessedTime += passedTime;
+		frameCounter += passedTime;
+
+		if ( frameCounter >= 1.0 )
+		{
+			frames = 0;
+			frameCounter = 0;
+		}
+		while ( unprocessedTime > _frameTime )
+		{
+			// Input::update();
+
+			mvwprintw( &getRenderEngine().getWindow(), 0, 0, "+" );
+
+			render = true;
+			unprocessedTime -= _frameTime;
+		}
+		if ( render )
+		{
+			this->_game->render( _frameTime );
+			wrefresh( &getRenderEngine().getWindow() );
+			frames++;
+		}
+		else
+		{
+			sleep( 1 );
+		}
 	}
 	return (0);
 }
@@ -93,9 +121,9 @@ unsigned		CoreEngine::getTime()
 	return ( (unsigned)time( NULL ) );
 }
 
-double			CoreEngine::getFramerate() const
+double			CoreEngine::getFrameTime() const
 {
-	return ( this->_framerate );
+	return ( this->_frameTime );
 }
 
 Game &			CoreEngine::getGame() const

@@ -16,11 +16,14 @@ CFLAGS			=	-Wall -Werror -Wextra -ansi
 
 NAME			=	ft_retro
 
-SRCS			=	$(NAME).cpp				\
-					CoreEngine.cpp			\
-					RenderEngine.cpp		\
-					GameObject.cpp			\
-					Game.cpp
+SRCS			=	$(NAME).cpp							\
+					FtRetroGame.cpp						\
+					GameEngine/CoreEngine.cpp			\
+					GameEngine/RenderEngine.cpp			\
+					GameEngine/GameObject.cpp			\
+					GameEngine/Vector2f.cpp				\
+					GameEngine/GameComponent.cpp		\
+					GameEngine/Game.cpp
 
 OBJS			=	$(SRCS:.cpp=.o)
 

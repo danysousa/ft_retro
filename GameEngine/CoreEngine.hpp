@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 10:59:59 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 14:20:13 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/10 18:00:01 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 
 	CoreEngine &	operator=( CoreEngine const & rhs );
 
-	double			getFramerate() const;
+	double			getFrameTime() const;
 	Game &			getGame() const;
 	bool			isRunning() const;
 	RenderEngine &	getRenderEngine() const;
@@ -40,7 +40,7 @@ public:
 private:
 	int				run();
 
-	double			_framerate;
+	double			_frameTime;
 	Game *			_game;
 	bool			_isRunning;
 	RenderEngine *	_renderEngine;

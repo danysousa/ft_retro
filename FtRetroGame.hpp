@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Game.cpp                                           :+:      :+:    :+:   */
+/*   FtRetroGame.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 14:06:31 by rbenjami         ###   ########.fr       */
+/*   Created: 2015/01/10 11:36:20 by rbenjami          #+#    #+#             */
+/*   Updated: 2015/01/10 17:36:39 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Game.hpp"
+#ifndef FT_RETRO_GAME
+# define FT_RETRO_GAME
+# include "GameEngine/Game.hpp"
 
-Game::Game()
+class FtRetroGame : public Game
 {
-	return ;
-}
+public:
+	FtRetroGame( void );
+	FtRetroGame( FtRetroGame const & src );
+	virtual ~FtRetroGame( void );
 
-Game::Game( Game const & src )
-{
-	*this = src;
-	return ;
-}
+	virtual bool	init( void );
 
-Game::~Game()
-{
-	return ;
-}
+	FtRetroGame &			operator=( FtRetroGame const & rhs );
 
-Game &	Game::operator=( Game const & rhs )
-{
-	if ( this != &rhs )
-	{
-	}
-	return ( *this );
-}
+};
 
-bool	Game::init()
-{
-	return ( true );
-}
+#endif

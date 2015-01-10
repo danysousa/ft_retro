@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GameObject.hpp                                     :+:      :+:    :+:   */
+/*   Player.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/10 12:55:47 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 14:26:28 by rbenjami         ###   ########.fr       */
+/*   Created: 2015/01/10 17:37:27 by rbenjami          #+#    #+#             */
+/*   Updated: 2015/01/10 17:47:42 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_OBJECT
-# define GAME_OBJECT
+# include "Player.hpp"
 
-class GameObject
+Player::Player() : PlayerObject
 {
-public:
-	GameObject( void );
-	GameObject( GameObject const & src );
-	virtual ~GameObject( void );
+	return ;
+}
 
-	GameObject &		operator=( GameObject const & rhs );
+Player::Player( Player const & src )
+{
+	*this = src;
+	return ;
+}
 
-// private:
-// 	Vector2f *			_pos;
+Player::~Player()
+{
+	return ;
+}
 
-};
-
-#endif
+Player &	Player::operator=( Player const & rhs )
+{
+	if ( this != &rhs )
+	{
+	}
+	return ( *this );
+}
