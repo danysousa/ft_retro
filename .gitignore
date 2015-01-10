@@ -1,5 +1,3 @@
 .idea/*
 CMakeLists.txt
-
-
 main_test.cpp
