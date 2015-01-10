@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:45:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/10 13:06:25 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/10 14:25:06 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,22 @@ Vector2f::~Vector2f( void )
 {
 	return ;
 }
+
+/*
+** METHODE
+*/
+
+float			Vector2f::length( void )
+{
+	return ( sqrt( this->_x * this->_x + this->_y * this->_y ) );
+}
+
+// Vector2f		Vector2f::rotate( float angle )
+// {
+// 	double		rad = angle / 180 * this->_pi;
+
+// }
+
 
 /*
 ** OPERATOR
@@ -94,6 +110,36 @@ Vector2f &		Vector2f::operator*( Vector2f & rhs ) const
 {
 	float	x = this->_x * rhs.getX();
 	float	y = this->_y * rhs.getY();
+
+	Vector2f *tmp = new Vector2f( x, y );
+
+	return ( *tmp );
+}
+
+Vector2f &		Vector2f::operator/( float rhs ) const
+{
+	float	x = this->_x / rhs;
+	float	y = this->_y / rhs;
+
+	Vector2f *tmp = new Vector2f( x, y );
+
+	return ( *tmp );
+}
+
+Vector2f &		Vector2f::operator/( int rhs ) const
+{
+	float	x = this->_x / (float)rhs;
+	float	y = this->_y / (float)rhs;
+
+	Vector2f *tmp = new Vector2f( x, y );
+
+	return ( *tmp );
+}
+
+Vector2f &		Vector2f::operator/( Vector2f & rhs ) const
+{
+	float	x = this->_x / rhs.getX();
+	float	y = this->_y / rhs.getY();
 
 	Vector2f *tmp = new Vector2f( x, y );
 
