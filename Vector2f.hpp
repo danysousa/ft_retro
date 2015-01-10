@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:45:15 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/10 14:24:49 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/10 14:35:44 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 # define VECTOR2F_HPP
 # include <iostream>
 # include <cmath>
+# define _PI_ 3.14159265359
 
 class Vector2f
 {
 	public:
 		Vector2f( void );
 		Vector2f( int x, int y );
+		Vector2f( float x, float y );
 		Vector2f( Vector2f & cpy );
 		~Vector2f( void );
 
@@ -38,12 +40,13 @@ class Vector2f
 		void			setX( float x );
 		void			setY( float y );
 
-		float			length( void );
+		float			length( void ) const;
+		Vector2f		rotate( float angle ) const;
+		Vector2f		abs( void ) const;
 
 	private:
 		float			_x;
 		float			_y;
-		// const float		_pi = 3.14159265358979323846;
 };
 
 #endif
