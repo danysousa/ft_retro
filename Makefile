@@ -18,12 +18,17 @@ NAME			=	ft_retro
 
 SRCS			=	$(NAME).cpp							\
 					FtRetroGame.cpp						\
+					\
 					GameEngine/CoreEngine.cpp			\
 					GameEngine/RenderEngine.cpp			\
 					GameEngine/GameObject.cpp			\
 					GameEngine/Vector2f.cpp				\
 					GameEngine/GameComponent.cpp		\
-					GameEngine/Game.cpp
+					GameEngine/Input.cpp				\
+					GameEngine/Game.cpp					\
+					# GameObjects/Player.cpp				\
+					# \
+					# GameComponent/Input.cpp				\
 
 OBJS			=	$(SRCS:.cpp=.o)
 
