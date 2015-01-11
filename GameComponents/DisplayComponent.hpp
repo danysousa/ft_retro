@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:42:16 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 11:16:29 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 12:41:18 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
 
 private:
 	std::string				_display;
+
 };
 
 #endif

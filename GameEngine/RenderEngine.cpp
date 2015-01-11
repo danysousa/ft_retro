@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 22:08:36 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 12:39:15 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 RenderEngine::RenderEngine()
 {
 	initscr();
+	start_color();
 	noecho();
 	curs_set( false );
 	getmaxyx( stdscr, this->_height, this->_width );

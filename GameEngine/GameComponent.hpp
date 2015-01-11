@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:38:44 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 11:50:06 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 12:34:56 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ public:
 	GameComponent( GameComponent const & src );
 	virtual ~GameComponent( void );
 
-	virtual void	input( float delta );
-	virtual void	update( float delta );
-	virtual void	render( RenderEngine & renderEngine );
+	virtual void			input( float delta );
+	virtual void			update( float delta );
+	virtual void			render( RenderEngine & renderEngine );
 
 	void					setParent( GameObject & parent );
 	GameObject &			getParent() const;
