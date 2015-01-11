@@ -6,16 +6,20 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 17:34:15 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 19:22:23 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Game.hpp"
 # include "CoreEngine.hpp"
+# include "../GameObjects/Monster.hpp"
+#include <cstdlib>
+#include <ctime>
 
 Game::Game() :
 	_root( 0 )
 {
+	std::srand(std::time(0));
 	return ;
 }
 
@@ -28,6 +32,7 @@ Game::Game( Game const & src ) :
 
 Game::~Game()
 {
+	std::srand(std::time(0));
 	return ;
 }
 
@@ -59,6 +64,7 @@ void	Game::input( float delta )
 
 void	Game::update( float delta )
 {
+	this->logicGamePlay();
 	this->getRootObject().updateAll( delta );
 }
 
@@ -80,4 +86,14 @@ void	Game::addObject( GameObject & object )
 void	Game::setEngine( CoreEngine & engine )
 {
 	this->getRootObject().setCoreEngine( engine );
+}
+
+void	Game::logicGamePlay( void )
+{
+	if ( std::rand() % 60 == 42 )
+	{
+		GameObject *	x = new Monster("X");
+
+		addObject( *x );
+	}
 }

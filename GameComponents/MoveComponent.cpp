@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   MoveComponent.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 12:13:15 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 16:07:10 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 18:33:56 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MoveComponent.hpp"
 #include "../GameEngine/GameObject.hpp"
+#include "../GameEngine/CoreEngine.hpp"
 
 MoveComponent::MoveComponent( void ) : GameComponent(), _velocity( new Vector2f( 0, 0 ) ), _speed( 0 )
 {
 	return ;
 }
 
-MoveComponent::MoveComponent( int speed ) : GameComponent(), _velocity( new Vector2f( 0, 0 ) ), _speed( speed )
+MoveComponent::MoveComponent( float speed ) : GameComponent(), _velocity( new Vector2f( 0, 0 ) ), _speed( speed )
 {
 	return ;
 }
@@ -69,8 +70,14 @@ void				MoveComponent::update( float delta )
 {
 	(void)delta;
 	Vector2f *		current_pos = &this->getParent().getPos();
+	Vector2f * 		tmp = new Vector2f(*current_pos + *this->_velocity);
 
-	this->getParent().setPos(*current_pos + *this->_velocity);
+	if ( tmp->getY() >= this->getParent().getCoreEngine().getRenderEngine().getHeight() )
+		tmp->setY( tmp->getY() - 1 );
+	else if ( tmp->getY() < 0 )
+		tmp->setY( 0 );
+
+	this->getParent().setPos( *tmp );
 
 	return ;
 }

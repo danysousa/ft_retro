@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 11:36:20 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 17:34:33 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 19:22:11 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ public:
 	virtual void	physic( float delta );
 	virtual void	render( RenderEngine & renderEngine );
 	virtual void	addObject( GameObject & object );
+	void			logicGamePlay( void );
 	GameObject &	getRoot() const;
 	void			setEngine( CoreEngine & engine );
 

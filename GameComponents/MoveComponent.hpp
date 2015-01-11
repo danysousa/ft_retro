@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MoveComponent.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 12:13:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 15:09:35 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 16:28:54 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class MoveComponent : public GameComponent
 {
 	public:
 		MoveComponent( void );
-		MoveComponent( int speed );
+		MoveComponent( float speed );
 		MoveComponent( MoveComponent const & src );
 		virtual ~MoveComponent( void );
 
