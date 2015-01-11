@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MapLimit.cpp                                       :+:      :+:    :+:   */
+/*   MapLimitComponent.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 19:27:42 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 21:15:34 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 21:35:19 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "MapLimit.hpp"
+# include "MapLimitComponent.hpp"
 # include "../GameEngine/GameObject.hpp"
 # include "../GameEngine/CoreEngine.hpp"
 
-MapLimit::MapLimit( void ) : GameComponent(),
+MapLimitComponent::MapLimitComponent( void ) : GameComponent(),
 _first( "=" ),
 _second( "_" ),
 _rank( 0 ),
@@ -24,18 +24,18 @@ _frame( 0 )
 	return ;
 }
 
-MapLimit::MapLimit( MapLimit const & src ) : GameComponent( src )
+MapLimitComponent::MapLimitComponent( MapLimitComponent const & src ) : GameComponent( src )
 {
 	*this = src;
 	return ;
 }
 
-MapLimit::~MapLimit()
+MapLimitComponent::~MapLimitComponent()
 {
 	return ;
 }
 
-MapLimit &	MapLimit::operator=( MapLimit const & rhs )
+MapLimitComponent &	MapLimitComponent::operator=( MapLimitComponent const & rhs )
 {
 	this->_first = rhs.getFirst();
 	this->_second = rhs.getSecond();
@@ -45,41 +45,41 @@ MapLimit &	MapLimit::operator=( MapLimit const & rhs )
 	return ( *this );
 }
 
-std::string				MapLimit::getFirst( void ) const
+std::string				MapLimitComponent::getFirst( void ) const
 {
 	return (this->_first);
 }
 
-std::string				MapLimit::getSecond( void ) const
+std::string				MapLimitComponent::getSecond( void ) const
 {
 	return (this->_second);
 }
 
-int						MapLimit::getRank( void ) const
+int						MapLimitComponent::getRank( void ) const
 {
 	return (this->_rank);
 }
 
-std::string				MapLimit::getDisplay( void ) const
+std::string				MapLimitComponent::getDisplay( void ) const
 {
 	return (this->_display);
 }
 
-void					MapLimit::setFirst( std::string value )
+void					MapLimitComponent::setFirst( std::string value )
 {
 	this->_first = value;
 
 	return ;
 }
 
-void					MapLimit::setSecond( std::string value )
+void					MapLimitComponent::setSecond( std::string value )
 {
 	this->_second = value;
 
 	return ;
 }
 
-void				MapLimit::input( float delta )
+void				MapLimitComponent::input( float delta )
 {
 	int			i = 0;
 	int			size = this->getParent().getCoreEngine().getRenderEngine().getWidth();
@@ -107,7 +107,7 @@ void				MapLimit::input( float delta )
 }
 
 
-void				MapLimit::render( RenderEngine & renderEngine )
+void				MapLimitComponent::render( RenderEngine & renderEngine )
 {
 	mvwprintw( &renderEngine.getWindow(), 0, 0, this->_display.c_str() );
 	mvwprintw( &renderEngine.getWindow(), this->getParent().getCoreEngine().getRenderEngine().getHeight() - 1, 0, this->_display.c_str() );

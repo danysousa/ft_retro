@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Map.cpp                                            :+:      :+:    :+:   */
+/*   Background.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,28 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Map.hpp"
-# include "../GameComponents/MapLimitComponent.hpp"
+#include "Background.hpp"
+# include "../GameComponents/BackgroundFileComponent.hpp"
 
-Map::Map( void ) : GameObject()
+Background::Background( void ) : GameObject()
 {
-	MapLimitComponent *		limit = new MapLimitComponent();
+	BackgroundFileComponent *		limit = new BackgroundFileComponent();
 	this->addComponent( *limit );
 
 	return ;
 }
 
-Map::Map( Map & cpy ) : GameObject( cpy )
+Background::Background( Background & cpy ) : GameObject( cpy )
 {
 	*this = cpy;
 }
 
-Map::~Map( void )
+Background::~Background( void )
 {
 	return ;
 }
 
-Map &		Map::operator=( Map & rhs )
+Background &		Background::operator=( Background & rhs )
 {
 	GameObject::operator=( rhs );
 	return ( *this );

@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Map.cpp                                            :+:      :+:    :+:   */
+/*   Background.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/11 20:19:32 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 21:36:38 by dsousa           ###   ########.fr       */
+/*   Created: 2015/01/11 20:19:20 by dsousa            #+#    #+#             */
+/*   Updated: 2015/01/11 20:24:14 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Map.hpp"
-# include "../GameComponents/MapLimitComponent.hpp"
+#ifndef BACKGROUND_HPP
+# define BACKGROUND_HPP
+# include "../GameEngine/GameObject.hpp"
 
-Map::Map( void ) : GameObject()
+class Background : public GameObject
 {
-	MapLimitComponent *		limit = new MapLimitComponent();
-	this->addComponent( *limit );
+	public:
+		Background( void );
+		Background( Background & cpy );
+		virtual ~Background( void );
 
-	return ;
-}
+		Background &			operator=( Background & rhs );
+};
 
-Map::Map( Map & cpy ) : GameObject( cpy )
-{
-	*this = cpy;
-}
-
-Map::~Map( void )
-{
-	return ;
-}
-
-Map &		Map::operator=( Map & rhs )
-{
-	GameObject::operator=( rhs );
-	return ( *this );
-}
+#endif

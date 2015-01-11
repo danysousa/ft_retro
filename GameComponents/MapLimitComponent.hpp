@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MapLimit.hpp                                       :+:      :+:    :+:   */
+/*   MapLimitComponent.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 19:27:32 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 21:09:05 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 21:40:51 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAPLIMIT_HPP
-# define MAPLIMIT_HPP
+#ifndef MAPLIMITCOMPONENT_HPP
+# define MAPLIMITCOMPONENT_HPP
 # include <string>
 # include "../GameEngine/GameComponent.hpp"
 
-class MapLimit : public GameComponent
+class MapLimitComponent : public GameComponent
 {
 public:
-	MapLimit( void );
-	MapLimit( std::string const & display );
-	MapLimit( MapLimit const & src );
-	virtual ~MapLimit( void );
+	MapLimitComponent( void );
+	MapLimitComponent( std::string const & display );
+	MapLimitComponent( MapLimitComponent const & src );
+	virtual ~MapLimitComponent( void );
 
-	MapLimit &		operator=( MapLimit const & rhs );
+	MapLimitComponent &		operator=( MapLimitComponent const & rhs );
 
 	void					input( float delta );
 	virtual void			render( RenderEngine & renderEngine );
