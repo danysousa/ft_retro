@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameObject.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:55:47 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 11:40:36 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 14:02:31 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ public:
 	int					getNbChildrens() const;
 	// GameComponent &		getComponents() const;
 	int					getNbComponents() const;
+	void				setPos( Vector2f & value );
 
 protected:
 	Vector2f *			_pos;

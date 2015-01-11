@@ -6,7 +6,7 @@
 #    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/05 09:52:30 by rbenjami          #+#    #+#              #
-#    Updated: 2015/01/11 11:48:50 by dsousa           ###   ########.fr        #
+#    Updated: 2015/01/11 13:44:09 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRCS			=	$(NAME).cpp							\
 					GameObjects/Player.cpp				\
 					\
 					GameComponents/DisplayComponent.cpp	\
-					GameComponents/MoveComponent.cpp
+					GameComponents/MoveComponent.cpp	\
+					GameComponents/MoveKeyComponent.cpp
 
 OBJS			=	$(SRCS:.cpp=.o)
 

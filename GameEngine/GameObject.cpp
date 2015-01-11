@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameObject.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:54:58 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 11:49:35 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 14:03:31 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,13 @@ void			GameObject::update( float delta )
 	{
 		this->_components[i]->update( delta );
 	}
+}
+
+void				GameObject::setPos( Vector2f & value )
+{
+	this->_pos = &value;
+
+	return ;
 }
 
 Vector2f &			GameObject::getPos() const

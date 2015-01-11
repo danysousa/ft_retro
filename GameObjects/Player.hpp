@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Player.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:50 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 09:31:27 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 13:52:47 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ public:
 	virtual ~Player( void );
 
 	Player &		operator=( Player const & rhs );
+
+	void			init( std::string const & display );
 };
 
 #endif

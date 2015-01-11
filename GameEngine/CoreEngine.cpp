@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoreEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 10:59:24 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 11:23:15 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 14:48:30 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int				CoreEngine::run()
 		startTime = getTime();
 		clear();
 		Input::update();
-		if ( Input::isKeyDown( KEY_LEFT ) )
+		if ( Input::isKeyDown( 27 ) )
 			this->stop();
 		this->_game->input( _framerate );
 		this->_game->update( _framerate );
