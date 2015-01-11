@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:50 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 21:04:57 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 21:23:59 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ public:
 
 	Player &		operator=( Player const & rhs );
 
-	void			init( std::string const & display );
+	void			initConstructor( std::string const & display );
+	virtual void	init( CoreEngine & coreEngine );
 	virtual void	input( float delta );
 	virtual void	update( float delta );
 	virtual void	collideWhith( GameObject const & colided );

@@ -6,14 +6,14 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 15:00:36 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 19:27:29 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 21:24:22 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Monster.hpp"
-# include "../GameComponents/DisplayComponent.hpp"
-# include "../GameComponents/MoveIAComponent.hpp"
-# include "../GameEngine/CoreEngine.hpp"
+#include "../GameComponents/DisplayComponent.hpp"
+#include "../GameComponents/MoveIAComponent.hpp"
+#include "../GameEngine/CoreEngine.hpp"
 #include <cstdlib>
 #include <ctime>
 

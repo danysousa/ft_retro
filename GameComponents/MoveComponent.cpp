@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 12:13:15 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 18:33:56 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 21:00:36 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ void				MoveComponent::update( float delta )
 	Vector2f *		current_pos = &this->getParent().getPos();
 	Vector2f * 		tmp = new Vector2f(*current_pos + *this->_velocity);
 
-	if ( tmp->getY() >= this->getParent().getCoreEngine().getRenderEngine().getHeight() )
+	if ( tmp->getY() >= this->getParent().getCoreEngine().getRenderEngine().getHeight() - 1 )
 		tmp->setY( tmp->getY() - 1 );
-	else if ( tmp->getY() < 0 )
-		tmp->setY( 0 );
+	else if ( tmp->getY() < 1 )
+		tmp->setY( 1 );
 
 	this->getParent().setPos( *tmp );
 
