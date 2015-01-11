@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MoveComponent.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 12:13:15 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 14:04:07 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 16:07:10 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ float				MoveComponent::getSpeed( void ) const
 	return ( this->_speed );
 }
 
-void				MoveComponent::setVelocity( Vector2f *value )
+void				MoveComponent::setVelocity( Vector2f & value )
 {
-	this->_velocity = value;
+	this->_velocity = &value;
 
 	return ;
 }

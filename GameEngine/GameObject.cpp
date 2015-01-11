@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameObject.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:54:58 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 14:03:31 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 16:02:05 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 GameObject::GameObject() :
 	_pos( new Vector2f( 0, 0 ) ),
 	_nbChildrens( 0 ),
-	_nbComponents( 0 )
+	_nbComponents( 0 ),
+	_coreEngine( 0 )
 {
 	return ;
 }
@@ -24,7 +25,8 @@ GameObject::GameObject() :
 GameObject::GameObject( GameObject const & src ) :
 	_pos( new Vector2f( 0, 0 ) ),
 	_nbChildrens( 0 ),
-	_nbComponents( 0 )
+	_nbComponents( 0 ),
+	_coreEngine( 0 )
 {
 	*this = src;
 	return ;
@@ -44,6 +46,7 @@ GameObject &	GameObject::operator=( GameObject const & rhs )
 		this->_nbChildrens = rhs.getNbChildrens();
 		// this->_components = &rhs.getComponents();
 		this->_nbComponents = rhs.getNbComponents();
+		this->_coreEngine = &rhs.getCoreEngine();
 	}
 	return ( *this );
 }
@@ -51,6 +54,7 @@ GameObject &	GameObject::operator=( GameObject const & rhs )
 void			GameObject::addChild( GameObject & child )
 {
 	this->_childrens[this->_nbChildrens] = &child;
+	this->_childrens[this->_nbChildrens]->setCoreEngine( *this->_coreEngine );
 	this->_nbChildrens++;
 }
 
@@ -109,6 +113,16 @@ void			GameObject::update( float delta )
 	}
 }
 
+void			GameObject::setCoreEngine( CoreEngine & engine )
+{
+	if ( this->_coreEngine != &engine )
+	{
+		this->_coreEngine = &engine;
+		for ( int i = 0; i < this->_nbChildrens; i++ )
+			this->_childrens[i]->setCoreEngine( engine );
+	}
+}
+
 void				GameObject::setPos( Vector2f & value )
 {
 	this->_pos = &value;
@@ -141,3 +155,8 @@ int					GameObject::getNbComponents() const
 	return ( this->_nbComponents );
 }
 
+
+CoreEngine &		GameObject::getCoreEngine() const
+{
+	return ( *this->_coreEngine );
+}

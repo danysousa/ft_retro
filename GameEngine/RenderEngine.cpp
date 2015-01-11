@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 12:39:15 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 16:20:55 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ RenderEngine::RenderEngine()
 	noecho();
 	curs_set( false );
 	getmaxyx( stdscr, this->_height, this->_width );
-	this->_window = newwin( this->_height, this->_width, 0, 0 );
+	this->_window = stdscr;//newwin( this->_height, this->_width, 0, 0 );
 	nodelay( stdscr, true );
 	keypad( stdscr, true );
 	return ;

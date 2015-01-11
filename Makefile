@@ -26,7 +26,9 @@ SRCS			=	$(NAME).cpp							\
 					GameEngine/GameComponent.cpp		\
 					GameEngine/Input.cpp				\
 					GameEngine/Game.cpp					\
+					\
 					GameObjects/Player.cpp				\
+					GameObjects/Bullet.cpp				\
 					\
 					GameComponents/DisplayComponent.cpp	\
 					GameComponents/MoveComponent.cpp	\
