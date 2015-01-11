@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:54:58 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 20:01:49 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:24:49 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # include "GameObject.hpp"
 # include "../GameObjects/Player.hpp"
 
-int	GameObject::MAX_GAME_OBJECTS = 1024;
+int	GameObject::MAX_GAME_OBJECTS = 256;
 
 GameObject::GameObject() :
 	_pos( new Vector2f( 0, 0 ) ),
@@ -54,22 +54,46 @@ GameObject &	GameObject::operator=( GameObject const & rhs )
 
 void			GameObject::addChild( GameObject & child )
 {
+	if ( !&child )
+		return ;
 	if ( this->_nbChildrens >= GameObject::MAX_GAME_OBJECTS )
 	{
 		delete &child;
+		this->_nbChildrens = 50;
 		return ;
 	}
-	this->_childrens[this->_nbChildrens] = &child;
-	this->_childrens[this->_nbChildrens]->setCoreEngine( *this->_coreEngine );
-	this->_childrens[this->_nbChildrens]->init( *this->_coreEngine );
-	this->_childrens[this->_nbChildrens]->_index = this->_nbChildrens;
-	this->_childrens[this->_nbChildrens]->_parent = this;
-	this->_nbChildrens++;
+	for ( int i = 0; i < GameObject::MAX_GAME_OBJECTS; i++ )
+	{
+		if ( !this->_childrens[i] || this->_childrens[i]->_dead )
+		{
+			this->_childrens[i] = &child;
+			this->_childrens[i]->setCoreEngine( *this->_coreEngine );
+			this->_childrens[i]->init( *this->_coreEngine );
+			this->_childrens[i]->_index = this->_nbChildrens;
+			this->_childrens[i]->_parent = this;
+			this->_nbChildrens++;
+			return ;
+		}
+	}
+	// this->_childrens[this->_nbChildrens] = &child;
+	// this->_childrens[this->_nbChildrens]->setCoreEngine( *this->_coreEngine );
+	// this->_childrens[this->_nbChildrens]->init( *this->_coreEngine );
+	// this->_childrens[this->_nbChildrens]->_index = this->_nbChildrens;
+	// this->_childrens[this->_nbChildrens]->_parent = this;
+	// this->_nbChildrens++;
 }
 
 void			GameObject::removeChild( GameObject & child )
 {
-	this->_childrens[child._index]->_dead = true;
+	if ( &child )
+		child.setDead();
+	if ( this->_childrens[child._index] )
+		this->_childrens[child._index]->_dead = true;
+}
+
+void			GameObject::setDead()
+{
+	this->_dead = true;
 }
 
 void			GameObject::addComponent( GameComponent & component )
@@ -151,7 +175,7 @@ void 			GameObject::inputAll( float delta )
 
 	for ( int i = 0; i < this->_nbChildrens; i++ )
 	{
-		if ( this->_childrens[i] && !this->_childrens[i]->_dead )
+		if ( this->_childrens[i] && this->_childrens[i] && !this->_childrens[i]->_dead )
 			this->_childrens[i]->inputAll( delta );
 	}
 }

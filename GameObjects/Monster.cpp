@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 15:00:36 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 21:24:22 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:22:31 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,19 @@ void			Monster::initConstructor( std::string const & display )
 	DisplayComponent *	dc = new DisplayComponent( display );
 	MoveIAComponent *	mkc = new MoveIAComponent( 0.5f, "random" );
 
+	dc->setColor( COLOR_RED );
+
 	this->addComponent( *mkc );
 	this->addComponent( *dc );
+}
+
+void			Monster::update( float  delta )
+{
+	GameObject::update( delta );
+	if ( this->getPos().getX() < 0 || this->getPos().getX() > getCoreEngine().getRenderEngine().getWidth() )
+	{
+		this->getParent().removeChild( *this );
+	}
 }
 
 void			Monster::collideWhith( GameObject const & colided )

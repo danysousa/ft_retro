@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:50 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 21:23:59 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 21:32:55 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ public:
 	void			setLives( int lives );
 
 private:
+	void			gameOverScreen();
 	int				_monsterKilled;
 	int				_lives;
 };

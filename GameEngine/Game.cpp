@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 19:30:11 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:02:55 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ void	Game::render( RenderEngine & renderEngine )
 
 void	Game::addObject( GameObject & object )
 {
-	this->getRootObject().addChild( object );
+	if ( &object )
+		this->getRootObject().addChild( object );
 }
 
 void	Game::setEngine( CoreEngine & engine )
