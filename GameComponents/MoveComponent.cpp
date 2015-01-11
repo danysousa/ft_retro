@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 12:13:15 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 14:04:07 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 15:55:26 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ MoveComponent::MoveComponent( void ) : GameComponent(), _velocity( new Vector2f(
 	return ;
 }
 
-MoveComponent::MoveComponent( int speed ) : GameComponent(), _velocity( new Vector2f( 0, 0 ) ), _speed( speed )
+MoveComponent::MoveComponent( float speed ) : GameComponent(), _velocity( new Vector2f( 0, 0 ) ), _speed( speed )
 {
 	return ;
 }

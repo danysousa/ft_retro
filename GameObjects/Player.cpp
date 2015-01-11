@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:43 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 14:26:30 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 15:56:29 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Player::Player( std::string const & display ) : GameObject()
 void		Player::init( std::string const & display )
 {
 	DisplayComponent *	dc = new DisplayComponent( display );
-	MoveKeyComponent *	mkc = new MoveKeyComponent( KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, ( 4 / 60 ) );
+	MoveKeyComponent *	mkc = new MoveKeyComponent( KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, 0.7f );
 	this->addComponent( *mkc );
 	this->addComponent( *dc );
 }

@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 11:03:04 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 14:45:38 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 15:54:50 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class MoveKeyComponent : public MoveComponent
 {
 	public:
 		MoveKeyComponent( void );
-		MoveKeyComponent( int up, int down, int left, int right, int speed );
+		MoveKeyComponent( int up, int down, int left, int right, float speed );
 		MoveKeyComponent( MoveKeyComponent const & src );
 		virtual ~MoveKeyComponent( void );
 

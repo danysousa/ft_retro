@@ -6,7 +6,7 @@
 #    By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/05 09:52:30 by rbenjami          #+#    #+#              #
-#    Updated: 2015/01/11 13:44:09 by dsousa           ###   ########.fr        #
+#    Updated: 2015/01/11 15:44:06 by dsousa           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,12 @@ SRCS			=	$(NAME).cpp							\
 					GameEngine/Input.cpp				\
 					GameEngine/Game.cpp					\
 					GameObjects/Player.cpp				\
+					GameObjects/Monster.cpp				\
 					\
 					GameComponents/DisplayComponent.cpp	\
 					GameComponents/MoveComponent.cpp	\
-					GameComponents/MoveKeyComponent.cpp
+					GameComponents/MoveKeyComponent.cpp	\
+					GameComponents/MoveIAComponent.cpp	\
 
 OBJS			=	$(SRCS:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 11:02:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 14:50:58 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 15:54:35 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ _isKeyUp( false ),
 _isKeyDown( false ),
 _isKeyLeft( false ),
 _isKeyRight( false )
-
 {
 	return ;
 }
 
-MoveKeyComponent::MoveKeyComponent( int up, int down, int left, int right, int speed ) :
+MoveKeyComponent::MoveKeyComponent( int up, int down, int left, int right, float speed ) :
 MoveComponent( speed ),
 _keyUp( up ),
 _keyDown( down ),
@@ -131,7 +130,7 @@ void		MoveKeyComponent::up( float delta )
 
 	if ( Input::isKeyDown(this->_keyUp) && this->_isKeyUp == false )
 	{
-		*this->_velocity = *this->_velocity + ( Vector2f( 0, -1 ) * 0.5f );
+		*this->_velocity = *this->_velocity + ( Vector2f( 0, -1 ) * this->_speed );
 		this->_isKeyUp = true;
 	}
 	else if ( !Input::isKeyDown(this->_keyUp) && this->_isKeyUp == true )
@@ -150,7 +149,7 @@ void		MoveKeyComponent::down( float delta )
 
 	if ( Input::isKeyDown(this->_keyDown) && this->_isKeyDown == false )
 	{
-		*this->_velocity = *this->_velocity + ( Vector2f( 0, 1 ) * 0.5f );
+		*this->_velocity = *this->_velocity + ( Vector2f( 0, 1 ) * this->_speed );
 		this->_isKeyDown = true;
 	}
 	else if ( !Input::isKeyDown(this->_keyDown) && this->_isKeyDown == true )
@@ -168,7 +167,7 @@ void		MoveKeyComponent::left( float delta )
 
 	if ( Input::isKeyDown(this->_keyLeft) && this->_isKeyLeft == false )
 	{
-		*this->_velocity = *this->_velocity + ( Vector2f( -1, 0 ) * 0.5f );
+		*this->_velocity = *this->_velocity + ( Vector2f( -1, 0 ) * this->_speed );
 		this->_isKeyLeft = true;
 	}
 	else if ( !Input::isKeyDown(this->_keyLeft) && this->_isKeyLeft == true )
@@ -186,7 +185,7 @@ void		MoveKeyComponent::right( float delta )
 
 	if ( Input::isKeyDown(this->_keyRight) && this->_isKeyRight == false )
 	{
-		*this->_velocity = *this->_velocity + ( Vector2f( 1, 0 ) * 0.5f );
+		*this->_velocity = *this->_velocity + ( Vector2f( 1, 0 ) * this->_speed );
 		this->_isKeyRight = true;
 	}
 	else if ( !Input::isKeyDown(this->_keyRight) && this->_isKeyRight == true )
@@ -197,4 +196,3 @@ void		MoveKeyComponent::right( float delta )
 
 	return ;
 }
-

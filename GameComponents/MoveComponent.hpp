@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 12:13:21 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 14:01:50 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 15:55:37 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class MoveComponent : public GameComponent
 {
 	public:
 		MoveComponent( void );
-		MoveComponent( int speed );
+		MoveComponent( float speed );
 		MoveComponent( MoveComponent const & src );
 		virtual ~MoveComponent( void );
 
