@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:54:58 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 16:02:05 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 17:20:56 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void			GameObject::addChild( GameObject & child )
 {
 	this->_childrens[this->_nbChildrens] = &child;
 	this->_childrens[this->_nbChildrens]->setCoreEngine( *this->_coreEngine );
+	this->_childrens[this->_nbChildrens]->init( *this->_coreEngine );
 	this->_nbChildrens++;
 }
 
@@ -63,6 +64,12 @@ void			GameObject::addComponent( GameComponent & component )
 	this->_components[this->_nbComponents] = &component;
 	this->_components[this->_nbComponents]->setParent( *this );
 	this->_nbComponents++;
+}
+
+void			GameObject::init( CoreEngine & coreEngine )
+{
+	(void)coreEngine;
+	return ;
 }
 
 void 			GameObject::renderAll( RenderEngine & renderEngine )
