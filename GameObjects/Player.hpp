@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:50 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 15:11:04 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 18:21:19 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 
 	void			init( std::string const & display );
 	virtual void	input( float delta );
+	virtual void	collideWhith( GameObject const & colided );
 };
 
 #endif

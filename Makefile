@@ -12,7 +12,7 @@
 
 CC				=	g++
 
-CFLAGS			=	-Wall -Werror -Wextra -ansi
+CFLAGS			=	-Wall -Werror -Wextra -ansi -g
 
 NAME			=	ft_retro
 

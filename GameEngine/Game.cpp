@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 16:02:20 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 17:34:15 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ void	Game::input( float delta )
 void	Game::update( float delta )
 {
 	this->getRootObject().updateAll( delta );
+}
+
+void	Game::physic( float delta )
+{
+	this->getRootObject().physicAll( delta );
 }
 
 void	Game::render( RenderEngine & renderEngine )

@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:43 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 16:24:34 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 18:44:26 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,10 @@ void		Player::input( float delta )
 		this->getCoreEngine().getGame().addObject( *bullet );
 	}
 	GameObject::input( delta );
+}
+
+void		Player::collideWhith( GameObject const & colided )
+{
+	this->getParent().removeChild( *this );
+	(void)colided;
 }

@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 10:59:24 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 15:44:37 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 17:32:53 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int				CoreEngine::run()
 			this->stop();
 		this->_game->input( _framerate );
 		this->_game->update( _framerate );
+		this->_game->physic( _framerate );
 		this->_game->render( *this->_renderEngine );
 		wrefresh( &getRenderEngine().getWindow() );
 		// std::stringstream o;
