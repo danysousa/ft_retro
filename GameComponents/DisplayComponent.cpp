@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:41:48 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 16:18:54 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 22:02:41 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ DisplayComponent::DisplayComponent() : GameComponent()
 }
 
 DisplayComponent::DisplayComponent( std::string const & display ) : GameComponent(),
-	_display( display )
+	_display( display ),
+	_color( COLOR_WHITE )
 {
 	return ;
 }
@@ -64,5 +65,17 @@ void				DisplayComponent::render( RenderEngine & renderEngine )
 {
 	int		x = this->getParent().getPos().getX();
 	int		y = this->getParent().getPos().getY();
+	SET_COLOR( this->_color );
 	mvwprintw( &renderEngine.getWindow(), y, x, this->_display.c_str() );
+	SET_COLOR( COLOR_WHITE );
+}
+
+int					DisplayComponent::getColor() const
+{
+	return ( this->_color );
+}
+
+void				DisplayComponent::setColor( int color )
+{
+	this->_color = color;
 }

@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 14:57:25 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 20:21:22 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 21:52:34 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ public:
 
 private:
 	Player *		_player;
+	int				_frame;
+	int				_sec;
 
 };
 

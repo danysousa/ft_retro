@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:43 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 21:24:09 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 22:02:28 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void		Player::initConstructor( std::string const & display )
 	MoveKeyComponent *		mkc = new MoveKeyComponent( KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, 0.7f );
 	DashBoardComponent *	dbc = new DashBoardComponent( *this );
 
+	dc->setColor( COLOR_GREEN );
+
 	this->addComponent( *dc );
 	this->addComponent( *mkc );
 	this->addComponent( *dbc );
@@ -80,10 +82,33 @@ void		Player::input( float delta )
 	GameObject::input( delta );
 }
 
+void		Player::gameOverScreen()
+{
+	std::stringstream ss[9];
+
+	ss[0] << " _____                        _____                \n";
+	ss[1] << "|  __ \\                      |  _  |               \n";
+	ss[2] << "| |  \\/ __ _ _ __ ___   ___  | | | |_   _____ _ __ \n";
+	ss[3] << "| | __ / _` | '_ ` _ \\ / _ \\ | | | \\ \\ / / _ \\ '__|\n";
+	ss[4] << "| |_\\ \\ (_| | | | | | |  __/ \\ \\_/ /\\ V /  __/ |   \n";
+	ss[5] << " \\____/\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|   \n";
+	ss[6] << "                                                   \n";
+	ss[7] << "                Press ESC to exit !                \n";
+	ss[8] << "                   Score: " << this->_monsterKilled << "                \n";
+
+	int x = getCoreEngine().getRenderEngine().getWidth() / 2 - 25;
+	int y = getCoreEngine().getRenderEngine().getHeight() / 2 - 4;
+
+	SET_COLOR( COLOR_RED );
+	for ( int i = 0; i < 9; i++ )
+		mvprintw( y + i, x, ss[i].str().c_str() );
+	SET_COLOR( COLOR_WHITE );
+}
+
 void		Player::update( float delta )
 {
 	if ( this->_lives <= 0 )
-		printw( "Game Over: press ESC to exit !" );
+		this->gameOverScreen();
 	else
 		GameObject::update( delta );
 }
@@ -91,7 +116,8 @@ void		Player::update( float delta )
 void		Player::collideWhith( GameObject const & colided )
 {
 	// this->getParent().removeChild( *this );
-	this->_lives--;
+	if ( this->_lives )
+		this->_lives--;
 	(void)colided;
 }
 

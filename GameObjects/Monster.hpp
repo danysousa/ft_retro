@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 15:00:45 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 19:27:47 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 22:51:50 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Monster : public GameObject
 		virtual void	init( CoreEngine & coreEngine );
 		void			initConstructor( std::string const & display );
 		virtual void	collideWhith( GameObject const & colided );
+		virtual void	update( float  delta );
 };
 
 #endif

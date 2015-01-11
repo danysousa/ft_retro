@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:43 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 20:37:06 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:23:33 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "Monster.hpp"
 # include "../GameComponents/DisplayComponent.hpp"
 # include "../GameComponents/MoveComponent.hpp"
+# include "../GameEngine/CoreEngine.hpp"
 
 Bullet::Bullet() : GameObject(),
 	_owner( 0 )
@@ -34,7 +35,10 @@ void		Bullet::init( std::string const & display, Vector2f & velocity )
 {
 	DisplayComponent *	dc = new DisplayComponent( display );
 	MoveComponent *	mc = new MoveComponent( 1 );
+
+	dc->setColor( COLOR_HIGH_YELLOW );
 	mc->setVelocity( velocity );
+
 	this->addComponent( *mc );
 	this->addComponent( *dc );
 }
@@ -67,5 +71,14 @@ void		Bullet::collideWhith( GameObject const & colided )
 	if ( typeid(colided) == typeid(Monster) )
 	{
 		this->_owner->killAMonster();
+	}
+}
+
+void		Bullet::update( float  delta )
+{
+	GameObject::update( delta );
+	if ( this->getPos().getX() < 0 || this->getPos().getX() > getCoreEngine().getRenderEngine().getWidth() )
+	{
+		this->setDead();
 	}
 }

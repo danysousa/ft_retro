@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:55:47 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 20:00:53 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:18:07 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ public:
 	CoreEngine &			getCoreEngine() const;
 	GameObject &			getParent() const;
 	bool					isDead() const;
+	void					setDead();
 	void					setPos( Vector2f & value );
 	void					setCoreEngine( CoreEngine & engine );
 
