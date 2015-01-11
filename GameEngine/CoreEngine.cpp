@@ -6,11 +6,12 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 10:59:24 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 22:07:02 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 11:23:15 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <sys/time.h>
+# include <sstream>
 # include "CoreEngine.hpp"
 # include "Input.hpp"
 
@@ -80,9 +81,13 @@ int				CoreEngine::run()
 		Input::update();
 		if ( Input::isKeyDown( KEY_LEFT ) )
 			this->stop();
+		this->_game->input( _framerate );
 		this->_game->update( _framerate );
 		this->_game->render( *this->_renderEngine );
 		wrefresh( &getRenderEngine().getWindow() );
+		// std::stringstream o;
+		// o << ( endTime - startTime );
+		// printw(o.str().c_str());
 		refresh();
 		endTime = getTime();
 		usleep( ( 1000000 / this->_framerate ) - ( endTime - startTime ) );
@@ -99,7 +104,6 @@ unsigned		CoreEngine::getTime()
 {
 	timeval curTime;
 	gettimeofday(&curTime, 0);
-	// int milli = curTime.tv_usec / 1000;
 	return ( (unsigned)curTime.tv_usec );
 }
 

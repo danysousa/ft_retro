@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:55:47 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 22:18:44 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 11:40:36 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,20 @@ public:
 	virtual void		addComponent( GameComponent & component );
 	virtual void		renderAll( RenderEngine & renderEngine );
 	virtual void		render( RenderEngine & renderEngine );
-	GameObject &		getChildrens() const;
+	virtual void		inputAll( float delta );
+	virtual void		input( float delta );
+	virtual void		updateAll( float delta );
+	virtual void		update( float delta );
+	// GameObject &		getChildrens() const;
 	int					getNbChildrens() const;
-	GameComponent &		getComponents() const;
+	// GameComponent &		getComponents() const;
 	int					getNbComponents() const;
 
 protected:
 	Vector2f *			_pos;
-	GameObject *		_childrens;
+	GameObject *		_childrens[256];
 	int					_nbChildrens;
-	GameComponent *		_components;
+	GameComponent *		_components[256];
 	int					_nbComponents;
 
 };

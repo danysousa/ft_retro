@@ -6,11 +6,12 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:41:48 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 22:40:53 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 11:46:26 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "DisplayComponent.hpp"
+# include "../GameEngine/GameObject.hpp"
 
 DisplayComponent::DisplayComponent() : GameComponent()
 {
@@ -23,7 +24,7 @@ DisplayComponent::DisplayComponent( std::string const & display ) : GameComponen
 	return ;
 }
 
-DisplayComponent::DisplayComponent( DisplayComponent const & src ) : GameComponent()
+DisplayComponent::DisplayComponent( DisplayComponent const & src ) : GameComponent( src )
 {
 	*this = src;
 	return ;
@@ -48,9 +49,20 @@ std::string			DisplayComponent::getDisplay() const
 	return ( this->_display );
 }
 
+void				DisplayComponent::input( float delta )
+{
+	(void)delta;
+}
+
+void				DisplayComponent::update( float delta )
+{
+	(void)delta;
+}
+
+
 void				DisplayComponent::render( RenderEngine & renderEngine )
 {
-	printw("pok");
-	(void)renderEngine;
-	// mvwprintw( &renderEngine.getWindow(), 0, 0, this->_display.c_str() );
+	int		x = this->getParent().getPos().getX();
+	int		y = this->getParent().getPos().getY();
+	mvwprintw( &renderEngine.getWindow(), y, x, this->_display.c_str() );
 }
