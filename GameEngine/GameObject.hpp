@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:55:47 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 16:41:07 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 19:16:54 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ public:
 	virtual void		input( float delta );
 	virtual void		updateAll( float delta );
 	virtual void		update( float delta );
+	virtual void		init( CoreEngine & coreEngine );
 	// GameObject &		getChildrens() const;
 	int					getNbChildrens() const;
 	// GameComponent &		getComponents() const;

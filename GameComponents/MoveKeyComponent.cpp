@@ -6,12 +6,13 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 11:02:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 15:54:35 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 19:11:37 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MoveKeyComponent.hpp"
 #include "../GameEngine/Input.hpp"
+#include "../GameEngine/CoreEngine.hpp"
 #include <ncurses.h>
 
 MoveKeyComponent::MoveKeyComponent( void ) :
@@ -167,7 +168,10 @@ void		MoveKeyComponent::left( float delta )
 
 	if ( Input::isKeyDown(this->_keyLeft) && this->_isKeyLeft == false )
 	{
-		*this->_velocity = *this->_velocity + ( Vector2f( -1, 0 ) * this->_speed );
+		*this->_velocity = *this->_velocity + ( Vector2f( -2, 0 ) * this->_speed );
+		if ( this->getParent().getPos().getX() <= 0 )
+			this->_velocity->setX( 0 );
+
 		this->_isKeyLeft = true;
 	}
 	else if ( !Input::isKeyDown(this->_keyLeft) && this->_isKeyLeft == true )
@@ -185,7 +189,10 @@ void		MoveKeyComponent::right( float delta )
 
 	if ( Input::isKeyDown(this->_keyRight) && this->_isKeyRight == false )
 	{
-		*this->_velocity = *this->_velocity + ( Vector2f( 1, 0 ) * this->_speed );
+		*this->_velocity = *this->_velocity + ( Vector2f( 2, 0 ) * this->_speed );
+		if ( this->getParent().getPos().getX() + 2 >= this->getParent().getCoreEngine().getRenderEngine().getWidth() )
+			this->_velocity->setX( 0 );
+
 		this->_isKeyRight = true;
 	}
 	else if ( !Input::isKeyDown(this->_keyRight) && this->_isKeyRight == true )

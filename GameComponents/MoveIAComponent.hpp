@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 15:32:51 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 16:44:43 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 17:40:11 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class MoveIAComponent : public MoveComponent
 		void					setDeplacement( std::string value );
 		std::string				getDeplacement( void );
 
-		virtual void			render( float delta );
+		virtual void			input( float delta );
 		void					random( float delta );
 
 	private:

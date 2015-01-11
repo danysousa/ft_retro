@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 15:00:36 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 17:14:58 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 17:58:27 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 Monster::Monster( void ) : GameObject()
 {
 	std::srand(std::time(0));
-	this->init( "Monster" );
+	this->initConstructor( "Monster" );
 
 	return ;
 }
 
 Monster::Monster( std::string const & display ) : GameObject()
 {
-	this->init( display );
+	this->initConstructor( display );
 
 	return ;
 }
@@ -48,12 +48,15 @@ Monster &		Monster::operator=( Monster & rhs )
 	return ( *this );
 }
 
-void			Monster::init( std::string const & display )
+void			Monster::init( CoreEngine & coreEngine )
 {
-	// int			y = (( std::rand() % this->getCoreEngine().getRenderEngine().getHeight() ) * - 1) - 10;
+	int			y = ( std::rand() % coreEngine.getRenderEngine().getHeight() ) - 1;
 
-	// this->setPos( * new Vector2f( this->getCoreEngine().getRenderEngine().getWidth(), y ) );
+	this->setPos( * new Vector2f( coreEngine.getRenderEngine().getWidth() - 1, y ) );
+}
 
+void			Monster::initConstructor( std::string const & display )
+{
 	DisplayComponent *	dc = new DisplayComponent( display );
 	MoveIAComponent *	mkc = new MoveIAComponent( 0.5f, "random" );
 

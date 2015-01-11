@@ -6,13 +6,12 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 17:20:26 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 19:15:21 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "FtRetroGame.hpp"
 # include "GameObjects/Player.hpp"
-# include "GameObjects/Monster.hpp"
 # include "GameComponents/DisplayComponent.hpp"
 # include <iostream>
 
@@ -44,7 +43,7 @@ bool			FtRetroGame::init()
 {
 	// START INIT
 
-	GameObject *	o = new Player("O");
+	GameObject *	o = new Player(">");
 
 	addObject( *o );
 

@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 15:00:45 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 15:26:05 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 17:58:28 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Monster : public GameObject
 		virtual ~Monster( void );
 
 		Monster &		operator=( Monster & rhs );
-		void			init( std::string const & display );
+		virtual void	init( CoreEngine & coreEngine );
+		void			initConstructor( std::string const & display );
 };
 
 #endif
