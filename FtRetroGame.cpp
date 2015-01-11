@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   FtRetroGame.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 19:22:30 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 20:28:41 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "FtRetroGame.hpp"
 # include "GameObjects/Player.hpp"
+# include "GameObjects/Map.hpp"
 # include "GameComponents/DisplayComponent.hpp"
 # include <iostream>
 
@@ -43,9 +44,12 @@ bool			FtRetroGame::init()
 {
 	// START INIT
 
-	GameObject *	o = new Player(">");
+	GameObject *	player = new Player(">");
 
-	addObject( *o );
+	addObject( *player );
+	GameObject *	map = new Map();
+
+	addObject( *map );
 
 	// END INIT
 	return ( true );
