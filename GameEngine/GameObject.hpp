@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:55:47 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 14:02:31 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 16:41:07 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include "Vector2f.hpp"
 # include "GameComponent.hpp"
 # include "RenderEngine.hpp"
+
+class CoreEngine;
 
 class GameObject
 {
@@ -39,7 +41,9 @@ public:
 	int					getNbChildrens() const;
 	// GameComponent &		getComponents() const;
 	int					getNbComponents() const;
+	CoreEngine &		getCoreEngine() const;
 	void				setPos( Vector2f & value );
+	void				setCoreEngine( CoreEngine & engine );
 
 protected:
 	Vector2f *			_pos;
@@ -47,7 +51,7 @@ protected:
 	int					_nbChildrens;
 	GameComponent *		_components[256];
 	int					_nbComponents;
-
+	CoreEngine *		_coreEngine;
 };
 
 #endif

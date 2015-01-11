@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Game.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 11:17:48 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 17:22:46 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Game.hpp"
+# include "CoreEngine.hpp"
 
 Game::Game() :
 	_root( 0 )
@@ -69,4 +70,9 @@ void	Game::render( RenderEngine & renderEngine )
 void	Game::addObject( GameObject & object )
 {
 	this->getRootObject().addChild( object );
+}
+
+void	Game::setEngine( CoreEngine & engine )
+{
+	this->getRootObject().setCoreEngine( engine );
 }

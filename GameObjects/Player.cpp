@@ -6,14 +6,17 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:43 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 15:56:29 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 16:30:46 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Player.hpp"
 # include "../GameComponents/DisplayComponent.hpp"
 # include "../GameComponents/MoveKeyComponent.hpp"
-# include <ncurses.h>
+# include "../GameEngine/Input.hpp"
+# include "../GameEngine/CoreEngine.hpp"
+# include "Bullet.hpp"
+# include <sstream>
 
 Player::Player() : GameObject()
 {
@@ -50,4 +53,15 @@ Player &	Player::operator=( Player const & rhs )
 {
 	GameObject::operator=( rhs );
 	return ( *this );
+}
+
+void		Player::input( float delta )
+{
+	if ( Input::isKeyDown( ' ' ) )
+	{
+		GameObject *	bullet = new Bullet( "-", * new Vector2f( 1, 0 ) );
+		bullet->setPos( *this->_pos );
+		this->getCoreEngine().getGame().addObject( *bullet );
+	}
+	GameObject::input( delta );
 }

@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 15:32:44 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 16:17:22 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 16:44:01 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ MoveIAComponent::MoveIAComponent( void ) : MoveComponent( 0 ), _deplacement( "ra
 	return ;
 }
 
-MoveIAComponent::MoveIAComponent( int speed, std::string deplacement ) : MoveComponent( speed ), _deplacement( deplacement )
+MoveIAComponent::MoveIAComponent( float speed, std::string deplacement ) : MoveComponent( speed ), _deplacement( deplacement )
 {
 	std::srand(std::time(0));
 	return ;
@@ -67,9 +67,9 @@ std::string		MoveIAComponent::getDeplacement( void )
 ** METHOD
 */
 
-void			MoveIAComponent::input( float delta )
+void			MoveIAComponent::render( float delta )
 {
-	(void)delta;
+	this->random( delta );
 	return ;
 }
 

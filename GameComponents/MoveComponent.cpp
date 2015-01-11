@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 12:13:15 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 15:55:26 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 16:27:53 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ float				MoveComponent::getSpeed( void ) const
 	return ( this->_speed );
 }
 
-void				MoveComponent::setVelocity( Vector2f *value )
+void				MoveComponent::setVelocity( Vector2f & value )
 {
-	this->_velocity = value;
+	this->_velocity = &value;
 
 	return ;
 }

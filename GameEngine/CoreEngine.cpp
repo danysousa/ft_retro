@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoreEngine.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 10:59:24 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 14:48:30 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 15:44:37 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ CoreEngine::CoreEngine( double framerate, Game & game ) :
 	_game( &game ),
 	_isRunning( false )
 {
+	game.setEngine( *this );
 	return ;
 }
 

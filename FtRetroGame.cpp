@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   FtRetroGame.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/10 22:04:12 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 17:20:26 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "FtRetroGame.hpp"
 # include "GameObjects/Player.hpp"
+# include "GameObjects/Monster.hpp"
 # include "GameComponents/DisplayComponent.hpp"
 # include <iostream>
 

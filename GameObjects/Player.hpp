@@ -6,7 +6,7 @@
 /*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 20:44:50 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 15:29:42 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 16:27:27 by dsousa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
 	Player &		operator=( Player const & rhs );
 
 	void			init( std::string const & display );
+	virtual void	input( float delta );
 };
 
 #endif
