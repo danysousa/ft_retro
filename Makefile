@@ -16,25 +16,26 @@ CFLAGS			=	-Wall -Werror -Wextra -ansi -g
 
 NAME			=	ft_retro
 
-SRCS			=	$(NAME).cpp							\
-					FtRetroGame.cpp						\
+SRCS			=	$(NAME).cpp								\
+					FtRetroGame.cpp							\
 					\
-					GameEngine/CoreEngine.cpp			\
-					GameEngine/RenderEngine.cpp			\
-					GameEngine/GameObject.cpp			\
-					GameEngine/Vector2f.cpp				\
-					GameEngine/GameComponent.cpp		\
-					GameEngine/Input.cpp				\
-					GameEngine/Game.cpp					\
+					GameEngine/CoreEngine.cpp				\
+					GameEngine/RenderEngine.cpp				\
+					GameEngine/GameObject.cpp				\
+					GameEngine/Vector2f.cpp					\
+					GameEngine/GameComponent.cpp			\
+					GameEngine/Input.cpp					\
+					GameEngine/Game.cpp						\
 					\
-					GameObjects/Player.cpp				\
-					GameObjects/Monster.cpp				\
-					GameObjects/Bullet.cpp				\
+					GameObjects/Player.cpp					\
+					GameObjects/Monster.cpp					\
+					GameObjects/Bullet.cpp					\
 					\
-					GameComponents/DisplayComponent.cpp	\
-					GameComponents/MoveComponent.cpp	\
-					GameComponents/MoveKeyComponent.cpp	\
-					GameComponents/MoveIAComponent.cpp	\
+					GameComponents/DisplayComponent.cpp		\
+					GameComponents/MoveComponent.cpp		\
+					GameComponents/MoveKeyComponent.cpp		\
+					GameComponents/MoveIAComponent.cpp		\
+					GameComponents/DashBoardComponent.cpp	\
 
 OBJS			=	$(SRCS:.cpp=.o)
 

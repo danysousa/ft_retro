@@ -6,12 +6,15 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:54:58 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 19:17:10 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 20:01:49 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <typeinfo>
 # include "GameObject.hpp"
+# include "../GameObjects/Player.hpp"
+
+int	GameObject::MAX_GAME_OBJECTS = 1024;
 
 GameObject::GameObject() :
 	_pos( new Vector2f( 0, 0 ) ),
@@ -42,9 +45,7 @@ GameObject &	GameObject::operator=( GameObject const & rhs )
 	if ( this != &rhs )
 	{
 		this->_pos = &rhs.getPos();
-		// this->_childrens = &rhs.getChildrens();
 		this->_nbChildrens = rhs.getNbChildrens();
-		// this->_components = &rhs.getComponents();
 		this->_nbComponents = rhs.getNbComponents();
 		this->_coreEngine = &rhs.getCoreEngine();
 	}
@@ -53,6 +54,11 @@ GameObject &	GameObject::operator=( GameObject const & rhs )
 
 void			GameObject::addChild( GameObject & child )
 {
+	if ( this->_nbChildrens >= GameObject::MAX_GAME_OBJECTS )
+	{
+		delete &child;
+		return ;
+	}
 	this->_childrens[this->_nbChildrens] = &child;
 	this->_childrens[this->_nbChildrens]->setCoreEngine( *this->_coreEngine );
 	this->_childrens[this->_nbChildrens]->init( *this->_coreEngine );
@@ -63,8 +69,6 @@ void			GameObject::addChild( GameObject & child )
 
 void			GameObject::removeChild( GameObject & child )
 {
-	// delete this->_childrens[child._index];
-	// this->_childrens[child._index] = 0;
 	this->_childrens[child._index]->_dead = true;
 }
 
@@ -105,10 +109,7 @@ void			GameObject::render( RenderEngine & renderEngine )
 void 			GameObject::physicAll( float delta )
 {
 	(void)delta;
-	// int		nbChildrens = this->getNbOfAllChildrens();
-	// GameObject * childrens = this->getAllChildrens();
 	int		nbChildrens = this->_nbChildrens;
-	// GameObject * childrens = *this->_childrens;
 
 	for ( int i = 0; i < nbChildrens; i++ )
 	{
@@ -136,10 +137,6 @@ void			GameObject::collideWhith( GameObject const & colided )
 
 bool			GameObject::collide( GameObject & a , GameObject & b ) const
 {
-		// std::stringstream ss;
-		// ss << (int)a.getPos().getX() << std::endl;
-		// ss << (int)b.getPos().getX() << std::endl;
-		// printw(ss.str().c_str());
 	if ( (int)a.getPos().getX() == (int)b.getPos().getX() &&
 		 (int)a.getPos().getY() == (int)b.getPos().getY() )
 	{
@@ -211,6 +208,11 @@ Vector2f &			GameObject::getPos() const
 	return ( *this->_pos );
 }
 
+bool				GameObject::isDead() const
+{
+	return ( this->_dead );
+}
+
 GameObject &		GameObject::getParent() const
 {
 	return ( *this->_parent );
@@ -226,31 +228,6 @@ int					GameObject::getNbChildrens() const
 	return ( this->_nbChildrens );
 }
 
-
-// GameObject *		GameObject::getAllChildrens() const
-// {
-// 	int		size = this->getNbOfAllChildrens();
-
-// 	GameObject *	res = GameObject[size];
-
-// 	int		added = 0;
-
-// 	this->storeGameObject( res, &added );
-
-// 	return ( res );
-// }
-
-// int					GameObject::storeGameObject( GameObject & array, int * pos ) const
-// {
-// 	int		added = 0;
-
-// 	for ( int i = 0; i < this->_nbChildrens; i++ )
-// 	{
-// 		added += this->_childrens[i]->storeGameObject( array, pos );
-// 		array[added + pos] = this;
-// 	}
-// }
-
 int					GameObject::getNbOfAllChildrens() const
 {
 	int		res;
@@ -265,11 +242,6 @@ int					GameObject::getNbOfAllChildrens() const
 
 	return ( res );
 }
-
-// GameComponent &		GameObject::getComponents() const
-// {
-// 	return ( *this->_components );
-// }
 
 int					GameObject::getNbComponents() const
 {

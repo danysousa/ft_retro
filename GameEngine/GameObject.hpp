@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:55:47 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 19:21:55 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 20:00:53 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,14 @@ public:
 	GameObject * const *	getChildrens() const;
 	int						getNbChildrens() const;
 	int						getNbOfAllChildrens() const;
-	// GameComponent &		getComponents() const;
 	int						getNbComponents() const;
 	CoreEngine &			getCoreEngine() const;
 	GameObject &			getParent() const;
+	bool					isDead() const;
 	void					setPos( Vector2f & value );
 	void					setCoreEngine( CoreEngine & engine );
-	// GameObject *			getAllChildrens() const;
+
+	static int				MAX_GAME_OBJECTS;
 
 protected:
 	Vector2f *				_pos;
@@ -62,7 +63,6 @@ protected:
 	CoreEngine *			_coreEngine;
 
 private:
-	// int					storeGameObject( GameObject & array, int * pos ) const;
 	bool					collide( GameObject & a , GameObject & b ) const;
 	int						_index;
 	GameObject *			_parent;

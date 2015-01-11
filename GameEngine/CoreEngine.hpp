@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 10:59:59 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 15:33:36 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 19:53:55 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include "Game.hpp"
 # include "RenderEngine.hpp"
+# include "../GameObjects/Player.hpp"
 
 class CoreEngine
 {

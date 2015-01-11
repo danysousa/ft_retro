@@ -6,7 +6,7 @@
 /*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 12:21:02 by rbenjami          #+#    #+#             */
-/*   Updated: 2015/01/11 16:44:59 by rbenjami         ###   ########.fr       */
+/*   Updated: 2015/01/11 20:07:48 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ int				RenderEngine::getWidth() const
 
 int				RenderEngine::getHeight() const
 {
-	return ( this->_height );
+	return ( this->_height - 7 );
 }

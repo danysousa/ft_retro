@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Monster.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 15:00:45 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 17:58:28 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 19:27:47 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Monster : public GameObject
 		Monster &		operator=( Monster & rhs );
 		virtual void	init( CoreEngine & coreEngine );
 		void			initConstructor( std::string const & display );
+		virtual void	collideWhith( GameObject const & colided );
 };
 
 #endif

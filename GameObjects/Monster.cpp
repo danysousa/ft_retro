@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Monster.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsousa <dsousa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rbenjami <rbenjami@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 15:00:36 by dsousa            #+#    #+#             */
-/*   Updated: 2015/01/11 17:58:27 by dsousa           ###   ########.fr       */
+/*   Updated: 2015/01/11 19:27:29 by rbenjami         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,10 @@ void			Monster::initConstructor( std::string const & display )
 
 	this->addComponent( *mkc );
 	this->addComponent( *dc );
+}
+
+void			Monster::collideWhith( GameObject const & colided )
+{
+	this->getParent().removeChild( *this );
+	(void)colided;
 }
